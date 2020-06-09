@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-const primaryColor = Color(0xFBF5EE);
+//------------------------colors------------------------------------------------
+const Color primaryColor = Color(0xffFBF5EE);
 
-const colorGreenCheck = Color(0x2E9A6D);
+const green = Color(0xff2E9A6D);
 
-const colorUncheck = Color(0xFF7F5D);
+const colorCoral = Color(0xffFF7F5D);
+
+const deepOrange = Color(0xff642900);
