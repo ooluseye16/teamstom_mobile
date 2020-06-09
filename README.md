@@ -17,7 +17,9 @@ Step 4: Open your preferred terminal
 Here you have arrays of choice, you could use git bash (you have to download it to use it. Download it here -> [GitHub]https://git-scm.com/downloads)), powershell or your default window terminal.
 
 If you want to use git bash:
+
 4.1 Open the ‘github repo’ folder, remember you saved it on your desktop.
+
 Right-click anywhere in the folder and choose ‘git bash here’, automatically git bash will open.
 
 *If you want to use the terminal
@@ -26,9 +28,11 @@ Right-click anywhere in the folder and choose ‘git bash here’, automatically
 Step 5:git clone pasteTheUrlOfTheLinkYouCopiedInStep2
 
 It should look like this
+
 git clone https://github.com/{yourGithubUsername}/HNG_storm-task.git
 
 Step 6: To start your work, work the directory that contains the project files.
+
 cd teamstorm_mobile
 
 Step 7: git remote add upstream https://github.com/ooluseye16/teamstorm_mobile.git
@@ -36,28 +40,34 @@ Step 7: git remote add upstream https://github.com/ooluseye16/teamstorm_mobile.g
 Step 8: git pull upstream development
 
 Note: you will be on the Master branch automatically.
+
 You need to move out of the Master branch to another branch to start your work.
 
 To move to another branch
 
 We will be following standard git naming branch conventions: which is Feature, Bug and Chore.
 
-*Example of a bug? Probably there is a typo in the homepage. Branch Naming: bug/homepage-typo.
+* Example of a bug? Probably there is a typo in the homepage. Branch Naming: bug/homepage-typo.
 
-*Example of a feature? You created a user login page. Branch Naming: feat/user-login.
+* Example of a feature? You created a user login page. Branch Naming: feat/user-login.
 
-*Example of a chore? Update Read me. Branch Naming: chore/update-readme.
+* Example of a chore? Update Read me. Branch Naming: chore/update-readme.
 
 
-Run: git checkout -b feat/<nameOfBranch>
-  If it is a feature you created.
-  or
+Run: git checkout -b feat/user-login
+ 
+ If it is a feature you created.
+ 
+ or
   
-  Run: git checkout -b bug/<nameOfBranch>
+Run: git checkout -b bug/homepage-typo
+
   If it is a bug you corrected.
+  
   or
   
-  Run: git checkout -b chore/<nameOfBranch>
+Run: git checkout -b chore/update-readme
+
   If it is a chore.
   
   The name of your branch should be what you are working on: An example of branch naming is feat/user-login.
@@ -65,12 +75,15 @@ Run: git checkout -b feat/<nameOfBranch>
 IE: <nameOfBranch> should be replaced with your branch name or name of the branch you are working on, use hypen where you will normally use space.
   
   For example,
+  
 git checkout -b feat/user-login ✅
+
 git checkout -b feat/user login ❌
 
 After you have added the changes to the file or modified the file. Next,
 
 Run: git add .
+
 Run: git commit -m "feat: implemented user login"
 
 git push origin feat/user-login     (Notice how it ends with the branch you created earlier).
