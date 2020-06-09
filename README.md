@@ -42,11 +42,11 @@ To move to another branch
 
 We will be following standard git naming branch conventions: which is Feature, Bug and Chore.
 
-#Example of a bug? Probably there is a typo in the homepage. Branch Naming: bug/homepage-typo.
+# Example of a bug? Probably there is a typo in the homepage. Branch Naming: bug/homepage-typo.
 
-#Example of a feature? You created a user login page. Branch Naming: feat/user-login.
+# Example of a feature? You created a user login page. Branch Naming: feat/user-login.
 
-#Example of a chore? Update Read me. Branch Naming: chore/update-readme.
+# Example of a chore? Update Read me. Branch Naming: chore/update-readme.
 
 
 Run: git checkout -b feat/<nameOfBranch>
