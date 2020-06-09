@@ -112,7 +112,7 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
         padding: const EdgeInsets.only(bottom: 50),
         child: Container(
           height: 90,
-          width: 380,
+          width: 300,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(22)),
               border: Border.all(color: colorCoral, width: 3)),
