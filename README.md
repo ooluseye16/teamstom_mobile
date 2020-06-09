@@ -25,19 +25,19 @@ Right-click anywhere in the folder and choose ‘git bash here’, automatically
 *If you want to use the terminal
 4.2 press Window + R on your keyboard
 
-Step 5:git clone pasteTheUrlOfTheLinkYouCopiedInStep2
+Step 5: ```git clone pasteTheUrlOfTheLinkYouCopiedInStep2```
 
 It should look like this
 
-git clone https://github.com/{yourGithubUsername}/HNG_storm-task.git
+```git clone https://github.com/{yourGithubUsername}/HNG_storm-task.git```
 
 Step 6: To start your work, work the directory that contains the project files.
 
 cd teamstorm_mobile
 
-Step 7: git remote add upstream https://github.com/ooluseye16/teamstorm_mobile.git
+Step 7: ```git remote add upstream https://github.com/ooluseye16/teamstorm_mobile.git```
 
-Step 8: git pull upstream development
+Step 8: ```git pull upstream development```
 
 Note: you will be on the Master branch automatically.
 
@@ -54,39 +54,39 @@ We will be following standard git naming branch conventions: which is Feature, B
 * Example of a chore? Update Read me. Branch Naming: chore/update-readme.
 
 
-Run: git checkout -b feat/user-login
+Run: ```git checkout -b feat/<nameOfBranch>```
  
  If it is a feature you created.
  
  or
   
-Run: git checkout -b bug/homepage-typo
+Run: ```git checkout -b bug/<nameOfBranch>```
 
   If it is a bug you corrected.
   
   or
   
-Run: git checkout -b chore/update-readme
+Run: ```git checkout -b chore/<nameOfBranch>```
 
   If it is a chore.
   
-  The name of your branch should be what you are working on: An example of branch naming is feat/user-login.
+  * The name of your branch should be what you are working on: An example of branch naming is feat/user-login.
   
 IE: <nameOfBranch> should be replaced with your branch name or name of the branch you are working on, use hypen where you will normally use space.
   
   For example,
   
-git checkout -b feat/user-login ✅
+```git checkout -b feat/user-login ```✅
 
-git checkout -b feat/user login ❌
+```git checkout -b feat/user login ``` ❌
 
 After you have added the changes to the file or modified the file. Next,
 
-Run: git add .
+Run: ```git add . ```
 
-Run: git commit -m "feat: implemented user login"
+Run: ```git commit -m "feat: implemented user login" ```
 
-git push origin feat/user-login     (Notice how it ends with the branch you created earlier).
+```git push origin feat/user-login ```     (Notice how it ends with the branch you created earlier).
 
 Creating Pull requests
 
