@@ -29,13 +29,13 @@ Step 5: ```git clone pasteTheUrlOfTheLinkYouCopiedInStep2```
 
 It should look like this
 
-```git clone https://github.com/{yourGithubUsername}/HNG_storm-task.git```
+```git clone https://github.com/{yourGithubUsername}/teamstorm_mobile.git```
 
 Step 6: To start your work, work the directory that contains the project files.
 
 cd teamstorm_mobile
 
-Step 7: ```git remote add upstream https://github.com/ooluseye16/teamstorm_mobile.git```
+Step 7: ```git remote add upstream https://github.com/{yourGithubUsername}/teamstorm_mobile.git```
 
 Step 8: ```git pull upstream development```
 
