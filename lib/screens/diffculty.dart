@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../constants.dart';
+import '../constants.dart';
+
+
 
 class DifficultySelectionPage extends StatefulWidget {
   @override
@@ -84,7 +86,7 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
         },
         child: Container(
           height: 90,
-          width: 380,
+          width: 300,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(22)),
               border: Border.all(color: green, width: 3)),
