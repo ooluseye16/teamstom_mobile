@@ -25,8 +25,7 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
           Icons.keyboard_arrow_left,
           color: deepOrange,
         ),
-        title: Center(
-          child: Text(
+        title: Text(
             "Quiz",
             style: TextStyle(
                 color: deepOrange,
@@ -34,8 +33,8 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
                 fontWeight: FontWeight.bold,
                 fontStyle: FontStyle.normal),
           ),
+        centerTitle: true,
         ),
-      ),
 
       /**
        * the body of this screen wrapped in a Container widget

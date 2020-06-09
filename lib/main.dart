@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'screens/homepage.dart';
 import 'dart:async';
 
 void main() {
-  runApp(MaterialApp(home: MyApp()));
+  runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
