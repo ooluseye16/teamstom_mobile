@@ -1,24 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:teamstommobile/screens/diffculty.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class WelcomeScreen extends StatefulWidget {
+class WelcomeScreen extends StatelessWidget {
   final String username;
   WelcomeScreen({@required this.username});
-
-  @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
-}
-
-class _WelcomeScreenState extends State<WelcomeScreen> {
-  @override
-  void initState() { 
-    super.initState();
-    new Future.delayed(
-      const Duration(seconds: 3),
-        () => Navigator.push(context,
-        MaterialPageRoute(builder: (context)=> DifficultySelectionPage())
-    ));
-  }
   @override
   Widget build(BuildContext context) {
     double screenSize = MediaQuery.of(context).size.width;
@@ -32,7 +17,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: [
             Container(
               padding: EdgeInsets.all(20.0),
-              // child: Image.asset("assets/onboarding0.png"),
+              child: SvgPicture.asset(
+                "assets/Logo.svg",
+              ),
+
+              // Image.asset("assets/logo.png"),
             ),
             Text(
               "Welcome",
@@ -43,7 +32,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
             Text(
-              "${widget.username}!",
+              "$username!",
               style: TextStyle(
                 color: Color(0xff642900),
                 fontWeight: FontWeight.bold,
