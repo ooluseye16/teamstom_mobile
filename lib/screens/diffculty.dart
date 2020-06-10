@@ -210,7 +210,7 @@ class DifficultyWidget extends StatelessWidget {
         text = "Hard";
         break;
       case 1:
-        text = "Intermidiate";
+        text = "Intermediate";
         break;
       case 2:
         text = "Easy";
