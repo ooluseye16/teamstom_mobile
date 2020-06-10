@@ -8,8 +8,8 @@ xmlns:tools="http://schemas.android.com/tools"
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="teamstommobile"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Brain Tease"
+        android:icon="@drawable/logoalone">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
