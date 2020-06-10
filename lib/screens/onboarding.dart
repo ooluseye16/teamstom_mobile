@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:teamstommobile/screens/homepage.dart';
 import 'package:teamstommobile/screens/username.dart';
-import 'package:teamstommobile/utilities/styles.dart';
+import 'package:teamstommobile/screens/styles.dart';
 
  class OnboardingScreen extends StatefulWidget {
   @override
