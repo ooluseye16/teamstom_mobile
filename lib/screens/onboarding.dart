@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:teamstommobile/screens/homepage.dart';
 import 'package:teamstommobile/screens/username.dart';
+import 'package:teamstommobile/utilities/styles.dart';
 
  class OnboardingScreen extends StatefulWidget {
   @override
@@ -46,10 +47,10 @@ class _onboardingScreenState extends State<OnboardingScreen> {
               end: Alignment.bottomCenter,
               stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFFFFCED1),
-                Color(0xFFFFCED1),
-                Color(0xFFFFCED1),
-                Color(0xFFFFCED1),
+                Color(0xFF3594DD),
+                Color(0xFF3594DD),
+                Color(0xFF3594DD),
+                Color(0xFF3594DD),
               ],
             ),
           ),
@@ -100,61 +101,9 @@ class _onboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              '',
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              '',
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/onboarding0.png',
-                                ),
-                                height: 300.0,
-                                width: 300.0,
-                              ),
-                            ),
-                            SizedBox(height: 30.0),
-                            Text(
-                              '',
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              '',
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/onboarding0.png',
-                                ),
-                                height: 300.0,
-                                width: 300.0,
-                              ),
-                            ),
-                            SizedBox(height: 30.0),
-                            Text(
-                              '',
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              '',
+                              'Challenge yourself with our awesome\nmind burgling quizzes.\nUnlock levels of your minds...',
+                              style: kTitleStyle,
+                              textAlign: TextAlign.center,
                             ),
                           ],
                         ),
@@ -220,7 +169,7 @@ class _onboardingScreenState extends State<OnboardingScreen> {
               child: Text(
                 'Get started',
                 style: TextStyle(
-                  color: Color(0xFFFFCED1),
+                  color: Color(0xFF3594DD),
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
