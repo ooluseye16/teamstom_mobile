@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:teamstommobile/screens/questions.dart';
+import 'package:teamstommobile/screens/results.dart';
 import '../constants.dart';
-
-
 
 class DifficultySelectionPage extends StatefulWidget {
   @override
@@ -28,15 +28,15 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
           color: deepOrange,
         ),
         title: Text(
-            "Quiz",
-            style: TextStyle(
-                color: deepOrange,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.normal),
-          ),
-        centerTitle: true,
+          "Quiz",
+          style: TextStyle(
+              color: deepOrange,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.normal),
         ),
+        centerTitle: true,
+      ),
 
       /**
        * the body of this screen wrapped in a Container widget
@@ -80,7 +80,20 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
       padding: const EdgeInsets.only(bottom: 50),
       child: InkWell(
         onTap: () {
+          String difficultyType;
+          if (_selection == 0) {
+            difficultyType = "HARD";
+          } else if (_selection == 1) {
+            difficultyType = "MEDIUM";
+          } else if (_selection == 2) {
+            difficultyType = "EASY";
+          }
+
           //save difficulty level
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ResultScreen()));
 
           //go to next page
         },

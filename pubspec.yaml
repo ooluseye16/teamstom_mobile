@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   flutter_svg: ^0.17.4
   shared_preferences: ^0.5.7+3
+  social_share: ^2.0.4
+  screenshot: ^0.2.0
 
 
 
