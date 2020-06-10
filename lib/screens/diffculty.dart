@@ -12,64 +12,76 @@ class DifficultySelectionPage extends StatefulWidget {
 
 class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
   int _selection = -1;
+  
+  @override
+  void dispose() { 
+    setState(() {
+      int _selection = null;
+    });
+    
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: primaryColor,
-      /**
-       * constructs the app bar with the following codes
-       */
-      appBar: AppBar(
-        elevation: 0.0,
+    return WillPopScope(
+        onWillPop: () async => false,
+          child: Scaffold(
         backgroundColor: primaryColor,
-        leading: Icon(
-          Icons.keyboard_arrow_left,
-          color: deepOrange,
+        /**
+         * constructs the app bar with the following codes
+         */
+        appBar: AppBar(
+          elevation: 0.0,
+          backgroundColor: primaryColor,
+          leading: Icon(
+            Icons.keyboard_arrow_left,
+            color: deepOrange,
+          ),
+          title: Text(
+            "Quiz",
+            style: TextStyle(
+                color: deepOrange,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal),
+          ),
+          centerTitle: true,
         ),
-        title: Text(
-          "Quiz",
-          style: TextStyle(
-              color: deepOrange,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.normal),
-        ),
-        centerTitle: true,
-      ),
 
-      /**
-       * the body of this screen wrapped in a Container widget
-       */
+        /**
+         * the body of this screen wrapped in a Container widget
+         */
 
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 75,
-            ),
-            Text(
-              "Select your difficulty",
-              style: TextStyle(
-                  fontSize: 32, fontWeight: FontWeight.bold, color: deepOrange),
-            ),
-            SizedBox(
-              height: 75.0,
-            ),
-            Expanded(
-                child: ListView.builder(
-                    itemCount: 3,
-                    itemBuilder: (context, index) {
-                      bool check = _selection == index;
+        body: Container(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 75,
+              ),
+              Text(
+                "Select your difficulty",
+                style: TextStyle(
+                    fontSize: 32, fontWeight: FontWeight.bold, color: deepOrange),
+              ),
+              SizedBox(
+                height: 75.0,
+              ),
+              Expanded(
+                  child: ListView.builder(
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        bool check = _selection == index;
 
-                      return DifficultyWidget(check, index, (type) {
-                        setState(() {
-                          _selection = type;
+                        return DifficultyWidget(check, index, (type) {
+                          setState(() {
+                            _selection = type;
+                          });
                         });
-                      });
-                    })),
-            _selection == -1 ? _startButtonInActive() : _startButtonActive()
-          ],
+                      })),
+              _selection == -1 ? _startButtonInActive() : _startButtonActive()
+            ],
+          ),
         ),
       ),
     );
@@ -90,7 +102,7 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
           }
 
           //save difficulty level
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                   builder: (context) => QuestionsPage( _selection)));

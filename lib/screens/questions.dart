@@ -29,7 +29,10 @@ class _QuestionsPageState extends State<QuestionsPage> {
   getQuestions() async {
     questions = await _dataRepository.getQuestions(getQuizType(widget._type));
     // currentScore = questions.length;
-    setState(() {});
+    setState(() {
+        quizState = QuizStates.NO_SELECTION;
+        currentScore = 0;
+    });
   }
 
   double getProgressBarValue() {
@@ -62,28 +65,33 @@ class _QuestionsPageState extends State<QuestionsPage> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      backgroundColor: primaryColor,
-      appBar: AppBar(
+    return WillPopScope(
+      onWillPop: () async => false,
+          child: Scaffold(
         backgroundColor: primaryColor,
-        elevation: 0.0,
-        title: Text(
-          "QUIZ",
-          style: TextStyle(
-              color: deepOrange,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.normal),
-        ),
-        centerTitle: true,
-        leading: Icon(
-          Icons.keyboard_arrow_left,
-          color: deepOrange,
-        ),
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+          elevation: 0.0,
+          title: Text(
+            "QUIZ",
+            style: TextStyle(
+                color: deepOrange,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal),
+          ),
+          centerTitle: true,
+          // leading: InkWell(
+          //     onTap: (){},
+          //           child: Icon(
+          //     Icons.keyboard_arrow_left,
+          //     color: deepOrange,
+          //   ),
+          // ),
 
-        /**
-         * Skip action button is defined here
-         */
+          /**
+           * Skip action button is defined here
+           */
 //        actions: <Widget>[
 //          InkWell(
 //            onTap: () {
@@ -103,120 +111,121 @@ class _QuestionsPageState extends State<QuestionsPage> {
 //            ),
 //          )
 //        ],
-      ),
-      body:
+        ),
+        body:
 
-          /**
-       * in getting the questions from the db the build method might get called
-       *  so we should handle this by showing an empty container so we do not get error
-       */
-          questions == null
-              ? Container(
-                  child: Center(
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(deepOrange),
+            /**
+         * in getting the questions from the db the build method might get called
+         *  so we should handle this by showing an empty container so we do not get error
+         */
+            questions == null
+                ? Container(
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(deepOrange),
+                      ),
                     ),
-                  ),
-                )
-              : Container(
-                  child: Column(
-                    children: <Widget>[
-                      /**
-             * rounded progress bar to show quiz progress
-             */
-                      Padding(
-                        padding: EdgeInsets.all(15.0),
-                        child: LinearPercentIndicator(
-                          backgroundColor: Colors.orange[200],
-                          width: MediaQuery.of(context).size.width - 50,
-                          animation: false,
-                          lineHeight: 20.0,
+                  )
+                : Container(
+                    child: Column(
+                      children: <Widget>[
+                        /**
+               * rounded progress bar to show quiz progress
+               */
+                        Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: LinearPercentIndicator(
+                            backgroundColor: Colors.orange[200],
+                            width: MediaQuery.of(context).size.width - 50,
+                            animation: false,
+                            lineHeight: 20.0,
 //                animationDuration: 2000,
-                          percent: getProgressBarValue(),
-                          linearStrokeCap: LinearStrokeCap.roundAll,
-                          progressColor: green,
-                        ),
-                      ),
-
-                      /**
-             * define widget to display number questions answered and those remaining
-             */
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              currentQuestion.toString(),
-                              style: TextStyle(
-                                  fontSize: 22.0,
-                                  color: green,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FontStyle.normal),
-                            ),
-                            Text(
-                              "/${questions.length}",
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.orangeAccent,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FontStyle.normal),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      /**
-             * Question View
-             */
-
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Container(
-                          child: Text(
-                            questions[currentQuestion - 1].question_body,
-                            style: TextStyle(
-                                color: deepOrange,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 32.0),
+                            percent: getProgressBarValue(),
+                            linearStrokeCap: LinearStrokeCap.roundAll,
+                            progressColor: green,
                           ),
                         ),
-                      ),
 
-                      /**
-             * option view
-             */
+                        /**
+               * define widget to display number questions answered and those remaining
+               */
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15.0),
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                currentQuestion.toString(),
+                                style: TextStyle(
+                                    fontSize: 22.0,
+                                    color: green,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FontStyle.normal),
+                              ),
+                              Text(
+                                "/${questions.length}",
+                                style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.orangeAccent,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FontStyle.normal),
+                              ),
+                            ],
+                          ),
+                        ),
 
-                      Expanded(
-                          child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListView.builder(
-                            itemCount: 2,
-                            itemBuilder: (context, index) {
-                              bool check = _selection == index;
-                              return OptionWidget(
-                                check,
-                                index,
-                                questions[currentQuestion - 1].correct_answer,
-                                (type) {
-                                  setState(() {
-                                    _selection = type;
-                                  });
-                                },
-                              );
-                            }),
-                      )),
+                        /**
+               * Question View
+               */
 
-                      /**
-             * buttons next
-             */
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Container(
+                            child: Text(
+                              questions[currentQuestion - 1].question_body,
+                              style: TextStyle(
+                                  color: deepOrange,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 32.0),
+                            ),
+                          ),
+                        ),
 
-                      _selection == -1
-                          ? _submitButtonInActive()
-                          : _submitButtonActive()
-                    ],
+                        /**
+               * option view
+               */
+
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListView.builder(
+                              itemCount: 2,
+                              itemBuilder: (context, index) {
+                                bool check = _selection == index;
+                                return OptionWidget(
+                                  check,
+                                  index,
+                                  questions[currentQuestion - 1].correct_answer,
+                                  (type) {
+                                    setState(() {
+                                      _selection = type;
+                                    });
+                                  },
+                                );
+                              }),
+                        )),
+
+                        /**
+               * buttons next
+               */
+
+                        _selection == -1
+                            ? _submitButtonInActive()
+                            : _submitButtonActive()
+                      ],
+                    ),
                   ),
-                ),
+      ),
     );
   }
 
@@ -227,7 +236,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
               context,
               MaterialPageRoute(
                   builder: (context) => ResultScreen(
-                    score: currentScore,
+                    score: currentScore~/2,
                     quizType: _selection,
                     questionSize: questions.length
 
@@ -312,7 +321,8 @@ class OptionWidget extends StatelessWidget {
   bool isCorrect() {
     if (_isChecked == true) {
       if (_answer == _getOptionSelcted(_optionType)) {
-        currentScore++;
+        currentScore = currentScore + 1;
+        print(currentScore);
         return true;
       } else {
         
