@@ -16,7 +16,7 @@ class QuestionsPage extends StatefulWidget {
   _QuestionsPageState createState() => _QuestionsPageState();
 }
 
-enum QuizStates { NO_SELECTION, SELECTED, SUBMITTED }
+enum QuizStates { NO_SELECTION, SELECTED }
 
 class _QuestionsPageState extends State<QuestionsPage> {
   DataRepository _dataRepository = DataRepository();
