@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomeScreen extends StatelessWidget {
   final String username;
@@ -15,8 +16,12 @@ class WelcomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInset.all(20.0),
-              child: Image.asset("assets/logo.png"),
+              padding: EdgeInsets.all(20.0),
+              child: SvgPicture.asset(
+                "assets/Logo.svg",
+              ),
+
+              // Image.asset("assets/logo.png"),
             ),
             Text(
               "Welcome",

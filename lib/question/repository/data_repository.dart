@@ -16,7 +16,9 @@ class DataRepository {
       case "EASY":
         {
           String easyJsonString = await _dataService.getEasyQuestions();
+
           Map<String, dynamic> easyJsonMap = jsonDecode(easyJsonString);
+
           List<Question> tempQuestionList = [];
 
           easyJsonMap['results'].forEach((question) {
@@ -24,7 +26,7 @@ class DataRepository {
           });
 
           // print("I am a :${tempQuestionList.length}");
-          
+
           //Shuffling the data every call and returning 10 random easy questions
           List<Question> finalQuestionList =
               (tempQuestionList.toList()..shuffle()).take(10).toList();
@@ -33,8 +35,6 @@ class DataRepository {
         }
         break;
 
-
-
       //Handles the case for medium questions
       case "MEDIUM":
         {
@@ -42,11 +42,9 @@ class DataRepository {
           Map<String, dynamic> easyJsonMap = jsonDecode(mediumJsonString);
           List<Question> tempQuestionList = [];
 
-
           easyJsonMap['results'].forEach((question) {
             tempQuestionList.add(Question.fromJson(question));
           });
-
 
           // print("I am a :${tempQuestionList.length}");
 
@@ -65,11 +63,9 @@ class DataRepository {
           Map<String, dynamic> hardJsonMap = jsonDecode(hardJsonString);
           List<Question> tempQuestionList = [];
 
-
           hardJsonMap['results'].forEach((question) {
             tempQuestionList.add(Question.fromJson(question));
           });
-
 
           // print("I am a :${tempQuestionList.length}");
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:teamstommobile/screens/welcomScreen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class UsernameScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -14,16 +15,22 @@ class UsernameScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffFBF5EE),
       body: Column(
-        crossAxisAlignment:
-            phone ? CrossAxisAlignment.start : CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment:
+        //     phone ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            child: Image.asset(
-              "assets/backgroundImg.png",
+            child: SvgPicture.asset(
+              "assets/Illustration.svg",
               height: screenHeight / 2,
               width: screenWidth,
             ),
+
+            //  Image.asset(
+            //   "assets/backgroundImg.png",
+            //   height: screenHeight / 2,
+            //   width: screenWidth,
+            // ),
           ),
           Container(
             padding: EdgeInsets.only(left: 30, top: 30.0),
