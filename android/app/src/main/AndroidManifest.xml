@@ -8,7 +8,7 @@ xmlns:tools="http://schemas.android.com/tools"
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Brain Tease"
+        android:label="BrainTease"
         android:icon="@drawable/logoalone">
         <activity
             android:name=".MainActivity"

@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:teamstommobile/screens/profile_screen.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   final String username;
   WelcomeScreen({@required this.username});
+
+  @override
+  _WelcomeScreenState createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  @override
+  void initState() { 
+    super.initState();
+    new Future.delayed(const Duration(seconds: 3), () {
+        Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ProfileScreen()));
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double screenSize = MediaQuery.of(context).size.width;
@@ -32,7 +49,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             Text(
-              "$username!",
+              "${widget.username}!",
               style: TextStyle(
                 color: Color(0xff642900),
                 fontWeight: FontWeight.bold,

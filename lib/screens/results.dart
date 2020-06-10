@@ -3,9 +3,39 @@ import 'package:screenshot/screenshot.dart';
 import 'package:social_share/social_share.dart';
 import 'package:teamstommobile/constants.dart';
 import 'package:teamstommobile/screens/diffculty.dart';
+import 'package:teamstommobile/screens/profile_screen.dart';
 
-class ResultScreen extends StatelessWidget {
+class ResultScreen extends StatefulWidget {
+  final int score;
+  final int quizType;
+  final int questionSize;
+
+  const ResultScreen({Key key, this.score, this.quizType, this.questionSize}) : super(key: key);
+  @override
+  _ResultScreenState createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends State<ResultScreen> {
   ScreenshotController screenshotController = ScreenshotController();
+
+
+  String _getDifficultyText(int position) {
+    var text;
+    switch (position) {
+      case 0:
+        text = "Hard";
+        break;
+      case 1:
+        text = "Intermediate";
+        break;
+      case 2:
+        text = "Easy";
+        break;
+    }
+
+    return text;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +79,7 @@ class ResultScreen extends StatelessWidget {
                         height: 150.0,
                       ),
                       Text(
-                        "3/10",
+                        "${widget.score}/${widget.questionSize}",
                         style: TextStyle(
                             color: Colors.green,
                             fontSize: 50.0,
@@ -72,10 +102,10 @@ class ResultScreen extends StatelessWidget {
                   width: 2.0,
                 ),
                 onPressed: () {
-                  Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => DifficultySelectionPage()));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DifficultySelectionPage()));
                 },
                 child: Text("RESTART"),
               ),
@@ -88,7 +118,10 @@ class ResultScreen extends StatelessWidget {
               ),
               child: OutlineButton(
                 borderSide: BorderSide(color: Colors.green, width: 2.0),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                      builder: (context) => new ProfileScreen()));
+                },
                 child: Text("HOME"),
               ),
             ),
@@ -101,7 +134,7 @@ class ResultScreen extends StatelessWidget {
                   InkWell(
                     onTap: () async {
                       SocialShare.shareWhatsapp(
-                              "Hey there! I got 9/10 in the hard level of Brain Tease app, can you do better?")
+                              "Hey there! I got ${widget.score}/${widget.questionSize} in the ${_getDifficultyText(widget.quizType)} level of Brain Tease app, can you do better?")
                           .then((data) {
                         print(data);
                       });
@@ -119,13 +152,19 @@ class ResultScreen extends StatelessWidget {
                   InkWell(
                     onTap: () async {
                       SocialShare.shareTwitter(
-                          "Hey there! I got 9/10 in the hard level of Brain Tease app, can you do better?",
-                          hashtags: ["hnginternship", "teamSTORM", "HNGTeamStorm","trivia","quiz"],
-                          url: "",
-                          trailingText: "")
-                      .then((data) {
-                    print(data);
-                  });
+                              "Hey there! I got ${widget.score}/${widget.questionSize} in the ${_getDifficultyText(widget.quizType)} level of Brain Tease app, can you do better?",
+                              hashtags: [
+                                "hnginternship",
+                                "teamSTORM",
+                                "HNGTeamStorm",
+                                "trivia",
+                                "quiz"
+                              ],
+                              url: "",
+                              trailingText: "")
+                          .then((data) {
+                        print(data);
+                      });
                     },
                     child: Container(
                         height: 50.0,
@@ -139,12 +178,13 @@ class ResultScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () async {
-                      SocialShare.shareSms("Hey there! I got 9/10 in the hard level of Brain Tease app, can you do better?",
-                          url: "",
-                          trailingText: "")
-                      .then((data) {
-                    print(data);
-                  });
+                      SocialShare.shareSms(
+                              "Hey there! I got ${widget.score}/${widget.questionSize} in the ${_getDifficultyText(widget.quizType)} level of Brain Tease app, can you do better?",
+                              url: "",
+                              trailingText: "")
+                          .then((data) {
+                        print(data);
+                      });
                     },
                     child: Container(
                         height: 50.0,

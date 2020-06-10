@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:teamstommobile/screens/homepage.dart';
 import 'package:teamstommobile/screens/username.dart';
-import 'package:teamstommobile/screens/styles.dart';
+import 'package:teamstommobile/utilities/styles.dart';
 
  class OnboardingScreen extends StatefulWidget {
   @override
@@ -47,10 +47,10 @@ class _onboardingScreenState extends State<OnboardingScreen> {
               end: Alignment.bottomCenter,
               stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFF3594DD),
-                Color(0xFF3594DD),
-                Color(0xFF3594DD),
-                Color(0xFF3594DD),
+                Color(0xffFBF5EE),
+                Color(0xffFBF5EE),
+                Color(0xffFBF5EE),
+                Color(0xffFBF5EE),
               ],
             ),
           ),
@@ -59,21 +59,21 @@ class _onboardingScreenState extends State<OnboardingScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: FlatButton(
-                    onPressed: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context)=> UsernameScreen())),//here you can add the welcome screen
-                    // or the login screen instead of the hompage screen i used
-                    child: Text(
-                      'Skip',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                      ),
-                    ),
-                  ),
-                ),
+                // Container(
+                //   alignment: Alignment.centerRight,
+                //   child: FlatButton(
+                //     onPressed: () => Navigator.push(context,
+                //         MaterialPageRoute(builder: (context)=> UsernameScreen())),//here you can add the welcome screen
+                //     // or the login screen instead of the hompage screen i used
+                //     child: Text(
+                //       'Skip',
+                //       style: TextStyle(
+                //         color: Colors.deepOrangeAccent,
+                //         fontSize: 20.0,
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Container(
                   height: 600.0,
                   child: PageView(
@@ -93,17 +93,19 @@ class _onboardingScreenState extends State<OnboardingScreen> {
                             Center(
                               child: Image(
                                 image: AssetImage(
-                                  'assets/images/onboarding0.png',
+                                  'assets/images/Illustration.png',
                                 ),
                                 height: 300.0,
                                 width: 300.0,
                               ),
                             ),
-                            SizedBox(height: 30.0),
-                            Text(
-                              'Challenge yourself with our awesome\nmind burgling quizzes.\nUnlock levels of your minds...',
-                              style: kTitleStyle,
-                              textAlign: TextAlign.center,
+                            SizedBox(height: 50.0),
+                            Center(
+                              child: Text(
+                                'Challenge yourself with our awesome\nmind burgling quizzes.\nUnlock levels of your minds...',
+                                style: kTitleStyle,
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           ],
                         ),
@@ -169,7 +171,7 @@ class _onboardingScreenState extends State<OnboardingScreen> {
               child: Text(
                 'Get started',
                 style: TextStyle(
-                  color: Color(0xFF3594DD),
+                  color: Color(0xffFF7F5D),
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),

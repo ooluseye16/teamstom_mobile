@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:teamstommobile/screens/questions.dart';
-import 'package:teamstommobile/screens/results.dart';
+
 import '../constants.dart';
 
 class DifficultySelectionPage extends StatefulWidget {
@@ -93,7 +93,7 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => ResultScreen()));
+                  builder: (context) => QuestionsPage( _selection)));
 
           //go to next page
         },
