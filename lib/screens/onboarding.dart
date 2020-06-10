@@ -50,10 +50,10 @@ class _onboardingScreenState extends State<OnboardingScreen> {
               end: Alignment.bottomCenter,
               stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFFFFCED1),
-                Color(0xFFFFCED1),
-                Color(0xFFFFCED1),
-                Color(0xFFFFCED1),
+                Color(0xFF3594DD),
+                Color(0xFF4563DB),
+                Color(0xFF5036D5),
+                Color(0xFF5B16D0),
               ],
             ),
           ),
@@ -96,7 +96,7 @@ class _onboardingScreenState extends State<OnboardingScreen> {
                             Center(
                               child: Image(
                                 image: AssetImage(
-                                  'assets/images/onboard.png',
+                                  'assets/images/onboarding0.png',
                                 ),
                                 height: 300.0,
                                 width: 300.0,
@@ -104,11 +104,15 @@ class _onboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              '',
+                              'Challenge yourself with our awesome mind burgling quizzes.\nUnlock levels of your minds...',
                             ),
                             SizedBox(height: 15.0),
                             Text(
                               '',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22.0,
+                              ),
                             ),
                           ],
                         ),
@@ -224,7 +228,7 @@ class _onboardingScreenState extends State<OnboardingScreen> {
               child: Text(
                 'Get started',
                 style: TextStyle(
-                  color: Color(0xFFFFCED1),
+                  color: Color(0xFF3594DD),
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
