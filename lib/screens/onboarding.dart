@@ -224,7 +224,7 @@ class _onboardingScreenState extends State<OnboardingScreen> {
               child: Text(
                 'Get started',
                 style: TextStyle(
-                  color: Color(0xFF5B16D0),
+                  color: Color(0xFFFFCED1),
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
