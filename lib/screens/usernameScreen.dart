@@ -14,7 +14,7 @@ class UsernameScreen extends StatelessWidget {
     bool phone = screenWidth < 300;
     return Scaffold(
       backgroundColor: Color(0xffFBF5EE),
-      body: Column(
+      body: SingleChildScrollView(child: Column(
         // crossAxisAlignment:
         //     phone ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +64,7 @@ class UsernameScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
+      ),),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xff7E7F9A),
         child: Icon(
