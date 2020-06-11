@@ -28,6 +28,7 @@ dependencies:
   social_share: ^2.0.4
   screenshot: ^0.2.0
   percent_indicator: ^2.1.4
+  confetti: ^0.5.2
 
 
 
