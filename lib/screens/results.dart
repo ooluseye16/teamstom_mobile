@@ -1,0 +1,258 @@
+import 'package:flutter/material.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:social_share/social_share.dart';
+import 'package:teamstommobile/constants.dart';
+import 'package:teamstommobile/screens/diffculty.dart';
+import 'package:teamstommobile/screens/profile_screen.dart';
+import 'package:confetti/confetti.dart';
+
+
+class ResultScreen extends StatefulWidget {
+  final int score;
+  final int quizType;
+  final int questionSize;
+
+  const ResultScreen({Key key, this.score, this.quizType, this.questionSize}) : super(key: key);
+  @override
+  _ResultScreenState createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends State<ResultScreen> {
+  ScreenshotController screenshotController = ScreenshotController();
+
+  //Confetti Controllers
+  ConfettiController _controllerCenter;
+
+
+
+
+@override
+  void initState() {
+   
+        _controllerCenter =
+        ConfettiController(duration: const Duration(seconds: 10));
+        _controllerCenter.play();
+  
+    super.initState();
+  }
+
+
+   @override
+  void dispose() {
+
+    _controllerCenter.dispose();
+
+    super.dispose();
+  }
+
+
+
+
+
+  
+  String _getDifficultyText(int position) {
+    var text;
+    switch (position) {
+      case 0:
+        text = "Hard";
+        break;
+      case 1:
+        text = "Intermediate";
+        break;
+      case 2:
+        text = "Easy";
+        break;
+    }
+
+    return text;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () async => false,
+          child: Scaffold(
+        backgroundColor: primaryColor,
+        appBar: AppBar(
+          elevation: 0.0,
+          backgroundColor: primaryColor,
+          // leading: Icon(
+          //   Icons.keyboard_arrow_left,
+          //   color: deepOrange,
+          // ),
+          title: Text(
+            "Quiz",
+            style: TextStyle(
+                color: deepOrange,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal),
+          ),
+          centerTitle: true,
+        ),
+        body: Container(
+          margin: EdgeInsets.only(top: 50.0, bottom: 30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Align(
+          alignment: Alignment.center,
+          child: ConfettiWidget(
+            confettiController: _controllerCenter,
+            blastDirectionality: BlastDirectionality
+                .explosive, // don't specify a direction, blast randomly
+            shouldLoop:
+                true, // start again as soon as the animation is finished
+            colors: const [
+              Colors.green,
+              Colors.blue,
+              Colors.pink,
+              Colors.orange,
+              Colors.purple
+            ], // manually specify the colors to be used
+          ),
+        ),
+              Container(
+                height: 300.0,
+                child: Center(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          "QUIZ COMPLETE!",
+                          style: TextStyle(
+                              color: deepOrange,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 150.0,
+                        ),
+                        Text(
+                          "${widget.score}/${widget.questionSize}",
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 50.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              ButtonTheme(
+                height: 50.0,
+                minWidth: 290.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: OutlineButton(
+                  borderSide: BorderSide(
+                    color: Colors.green,
+                    width: 2.0,
+                  ),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DifficultySelectionPage()));
+                  },
+                  child: Text("RESTART"),
+                ),
+              ),
+              ButtonTheme(
+                height: 50.0,
+                minWidth: 290.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: OutlineButton(
+                  borderSide: BorderSide(color: Colors.green, width: 2.0),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                        builder: (context) => new ProfileScreen()));
+                  },
+                  child: Text("HOME"),
+                ),
+              ),
+              SizedBox(height: 20.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () async {
+                        SocialShare.shareWhatsapp(
+                                "Hey there! I got ${widget.score}/${widget.questionSize} in the Brain Tease app, can you do better? Click on this link to download the app! http://play.google.com/store/apps/details?id=com.teamstorm.braintease")
+                            .then((data) {
+                          print(data);
+                        });
+                      },
+                      child: Container(
+                          height: 50.0,
+                          width: 50.0,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/WhatsApp_48px.png'),
+                                  fit: BoxFit.cover))),
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        SocialShare.shareTwitter(
+                                "Hey there! I got ${widget.score}/${widget.questionSize} in the Brain Tease app, can you do better? Click on this link to download the app! http://play.google.com/store/apps/details?id=com.teamstorm.braintease",
+                                hashtags: [
+                                  "hnginternship",
+                                  "teamSTORM",
+                                  "HNGTeamStorm",
+                                  "trivia",
+                                  "quiz"
+                                ],
+                                url: "",
+                                trailingText: "")
+                            .then((data) {
+                          print(data);
+                        });
+                      },
+                      child: Container(
+                          height: 50.0,
+                          width: 50.0,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/Twitter_50px.png'),
+                                  fit: BoxFit.cover))),
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        SocialShare.shareSms(
+                                "Hey there! I got ${widget.score}/${widget.questionSize} in the Brain Tease app, can you do better? Click on this link to download the app! http://play.google.com/store/apps/details?id=com.teamstorm.braintease",
+                                url: "",
+                                trailingText: "")
+                            .then((data) {
+                          print(data);
+                        });
+                      },
+                      child: Container(
+                          height: 50.0,
+                          width: 50.0,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/Chat_64px.png'),
+                                  fit: BoxFit.cover))),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

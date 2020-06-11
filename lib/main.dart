@@ -1,13 +1,18 @@
-import "package:flutter/material.dart";
-import 'screens/homepage.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:teamstommobile/screens/splash_screen.dart';
+import 'package:teamstommobile/constants.dart';
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-    );
-  }
+void main() {
+  WidgetsFlutterBinding.ensureInitialized(); 
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp,DeviceOrientation.portraitDown]);
+  runApp(MaterialApp(
+    title: "BrainTease",
+    color: primaryColor ,
+    debugShowCheckedModeBanner: false,
+    home: SplashScreen(),
+  ));
 }
+
+

@@ -1,4 +1,4 @@
-package com.example.teamstommobile
+package com.teamstorm.braintease
 
 import io.flutter.embedding.android.FlutterActivity
 
