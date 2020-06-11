@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:teamstommobile/constants.dart';
 import 'package:teamstommobile/screens/welcomScreen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,12 +17,13 @@ class UsernameScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffFBF5EE),
       body: Center(
-        child: Column(
+        child: ListView(
           // crossAxisAlignment:
           //     phone ? CrossAxisAlignment.start : CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
+              padding: EdgeInsets.only(top: 5.0),
               child: SvgPicture.asset(
                 "assets/Illustration.svg",
                 height: screenHeight,
@@ -54,6 +56,12 @@ class UsernameScreen extends StatelessWidget {
               child: Form(
                 key: _formKey,
                 child: TextFormField(
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: deepOrange,
+                    fontWeight: FontWeight.w500
+                  ),
+                  textAlign: TextAlign.center,
                   controller: _controller,
                   inputFormatters: [
                     // Maximum number of characters the length of the username can be.

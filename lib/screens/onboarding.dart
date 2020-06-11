@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:teamstommobile/screens/homepage.dart';
 import 'package:teamstommobile/screens/username.dart';
 import 'package:teamstommobile/utilities/styles.dart';
 
- class OnboardingScreen extends StatefulWidget {
+ class OnBoardingScreen extends StatefulWidget {
   @override
-  _onboardingScreenState createState() => _onboardingScreenState();
+  _onBoardingScreenState createState() => _onBoardingScreenState();
 }
 
-class _onboardingScreenState extends State<OnboardingScreen> {
+// ignore: camel_case_types
+class _onBoardingScreenState extends State<OnBoardingScreen> {
   final int _numPages = 1;
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
@@ -74,43 +74,51 @@ class _onboardingScreenState extends State<OnboardingScreen> {
                 //     ),
                 //   ),
                 // ),
-                Container(
-                  height: 600.0,
-                  child: PageView(
-                    physics: ClampingScrollPhysics(),
-                    controller: _pageController,
-                    onPageChanged: (int page) {
-                      setState(() {
-                        _currentPage = page;
-                      });
-                    },
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/Illustration.png',
+                Expanded(
+                  child: Container(
+                    height: 600.0,
+                    child: PageView(
+                      physics: ClampingScrollPhysics(),
+                      controller: _pageController,
+                      onPageChanged: (int page) {
+                        setState(() {
+                          _currentPage = page;
+                        });
+                      },
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(40.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Center(
+                                child: Image(
+                                  image: AssetImage(
+                                    'assets/images/Illustration.png',
+                                  ),
+                                  height: 300.0,
+                                  width: 300.0,
                                 ),
-                                height: 300.0,
-                                width: 300.0,
                               ),
-                            ),
-                            SizedBox(height: 50.0),
-                            Center(
-                              child: Text(
-                                'Challenge yourself with our awesome\nmind burgling quizzes.\nUnlock levels of your minds...',
-                                style: kTitleStyle,
-                                textAlign: TextAlign.center,
+                              SizedBox(height: 50.0),
+                              Center(
+                                child: Text(
+                                  'Challenge yourself with our awesome mind boggling quizzes. Unlock levels of your minds...',
+                                  style: TextStyle(
+                                    color: Colors.deepOrangeAccent,
+                                    fontFamily: 'CM Sans Serif',
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.w500
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  softWrap: true,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 Row(

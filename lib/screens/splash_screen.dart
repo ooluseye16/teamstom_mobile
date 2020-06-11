@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:teamstommobile/screens/diffculty.dart';
 import 'package:teamstommobile/screens/onboarding.dart';
 import 'package:teamstommobile/screens/profile_screen.dart';
+
+import 'profile_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       await prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new OnboardingScreen()));
+          new MaterialPageRoute(builder: (context) => new OnBoardingScreen()));
     }
   }
 

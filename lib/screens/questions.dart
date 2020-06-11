@@ -81,36 +81,6 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 fontStyle: FontStyle.normal),
           ),
           centerTitle: true,
-          // leading: InkWell(
-          //     onTap: (){},
-          //           child: Icon(
-          //     Icons.keyboard_arrow_left,
-          //     color: deepOrange,
-          //   ),
-          // ),
-
-          /**
-           * Skip action button is defined here
-           */
-//        actions: <Widget>[
-//          InkWell(
-//            onTap: () {
-//              //TODO skip to next question
-//            },
-//            child: Padding(
-//              padding: const EdgeInsets.all(8.0),
-//              child: Center(
-//                child: Text(
-//                  "Skip",
-//                  style: TextStyle(
-//                      color: Colors.orange,
-//                      fontStyle: FontStyle.normal,
-//                      fontWeight: FontWeight.bold),
-//                ),
-//              ),
-//            ),
-//          )
-//        ],
         ),
         body:
 
@@ -156,7 +126,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                               Text(
                                 currentQuestion.toString(),
                                 style: TextStyle(
-                                    fontSize: 22.0,
+                                    fontSize: 20.0,
                                     color: green,
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FontStyle.normal),
@@ -178,15 +148,17 @@ class _QuestionsPageState extends State<QuestionsPage> {
                */
 
                         Padding(
-                          padding: const EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.all(20.0),
                           child: Container(
+                            height: MediaQuery.of(context).size.height/4,
                             child: Text(
                               questions[currentQuestion - 1].question_body,
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: deepOrange,
                                   fontStyle: FontStyle.normal,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 32.0),
+                                  fontSize: 25.0),
                             ),
                           ),
                         ),
