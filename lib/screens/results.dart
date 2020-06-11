@@ -4,6 +4,8 @@ import 'package:social_share/social_share.dart';
 import 'package:teamstommobile/constants.dart';
 import 'package:teamstommobile/screens/diffculty.dart';
 import 'package:teamstommobile/screens/profile_screen.dart';
+import 'package:confetti/confetti.dart';
+
 
 class ResultScreen extends StatefulWidget {
   final int score;
@@ -17,6 +19,35 @@ class ResultScreen extends StatefulWidget {
 
 class _ResultScreenState extends State<ResultScreen> {
   ScreenshotController screenshotController = ScreenshotController();
+
+  //Confetti Controllers
+  ConfettiController _controllerCenter;
+
+
+
+
+@override
+  void initState() {
+   
+        _controllerCenter =
+        ConfettiController(duration: const Duration(seconds: 10));
+        _controllerCenter.play();
+  
+    super.initState();
+  }
+
+
+   @override
+  void dispose() {
+
+    _controllerCenter.dispose();
+
+    super.dispose();
+  }
+
+
+
+
 
   
   String _getDifficultyText(int position) {
@@ -64,6 +95,23 @@ class _ResultScreenState extends State<ResultScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
+              Align(
+          alignment: Alignment.center,
+          child: ConfettiWidget(
+            confettiController: _controllerCenter,
+            blastDirectionality: BlastDirectionality
+                .explosive, // don't specify a direction, blast randomly
+            shouldLoop:
+                true, // start again as soon as the animation is finished
+            colors: const [
+              Colors.green,
+              Colors.blue,
+              Colors.pink,
+              Colors.orange,
+              Colors.purple
+            ], // manually specify the colors to be used
+          ),
+        ),
               Container(
                 height: 300.0,
                 child: Center(
