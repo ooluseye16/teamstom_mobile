@@ -5,6 +5,7 @@ import 'package:teamstommobile/constants.dart';
 
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized(); 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp,DeviceOrientation.portraitDown]);
   runApp(MaterialApp(
     title: "BrainTease",

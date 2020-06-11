@@ -184,7 +184,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     InkWell(
                       onTap: () async {
                         SocialShare.shareWhatsapp(
-                                "Hey there! I got ${widget.score}/${widget.questionSize} in the ${_getDifficultyText(widget.quizType)} level of Brain Tease app, can you do better?")
+                                "Hey there! I got ${widget.score}/${widget.questionSize} in the Brain Tease app, can you do better? Click on this link to download the app! http://play.google.com/store/apps/details?id=com.teamstorm.braintease")
                             .then((data) {
                           print(data);
                         });
@@ -202,7 +202,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     InkWell(
                       onTap: () async {
                         SocialShare.shareTwitter(
-                                "Hey there! I got ${widget.score}/${widget.questionSize} in the ${_getDifficultyText(widget.quizType)} level of Brain Tease app, can you do better?",
+                                "Hey there! I got ${widget.score}/${widget.questionSize} in the Brain Tease app, can you do better? Click on this link to download the app! http://play.google.com/store/apps/details?id=com.teamstorm.braintease",
                                 hashtags: [
                                   "hnginternship",
                                   "teamSTORM",
@@ -229,7 +229,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     InkWell(
                       onTap: () async {
                         SocialShare.shareSms(
-                                "Hey there! I got ${widget.score}/${widget.questionSize} in the ${_getDifficultyText(widget.quizType)} level of Brain Tease app, can you do better?",
+                                "Hey there! I got ${widget.score}/${widget.questionSize} in the Brain Tease app, can you do better? Click on this link to download the app! http://play.google.com/store/apps/details?id=com.teamstorm.braintease",
                                 url: "",
                                 trailingText: "")
                             .then((data) {

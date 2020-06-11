@@ -16,8 +16,8 @@ class UsernameScreen extends StatelessWidget {
     bool phone = screenWidth < 300;
     return Scaffold(
       backgroundColor: Color(0xffFBF5EE),
-      body: Center(
-        child: ListView(
+      body: SingleChildScrollView(
+        child: Column(
           // crossAxisAlignment:
           //     phone ? CrossAxisAlignment.start : CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,

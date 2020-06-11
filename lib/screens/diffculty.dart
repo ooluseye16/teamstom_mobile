@@ -34,10 +34,10 @@ class _DifficultySelectionPageState extends State<DifficultySelectionPage> {
         appBar: AppBar(
           elevation: 0.0,
           backgroundColor: primaryColor,
-          leading: Icon(
-            Icons.keyboard_arrow_left,
-            color: deepOrange,
-          ),
+          // leading: Icon(
+          //   Icons.keyboard_arrow_left,
+          //   color: deepOrange,
+          // ),
           title: Text(
             "Quiz",
             style: TextStyle(
